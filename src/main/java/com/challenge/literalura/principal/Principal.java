@@ -27,7 +27,7 @@ public class Principal {
         this.autorRepository = autorRepository;
     }
 
-    public void iniciar() {
+    public void iniciarAplicacion() {
         while (opcion != 0) {
             mostrarMenu();
 
@@ -51,7 +51,7 @@ public class Principal {
                     listarAutoresRegitrados();
                     break;
                 case 4:
-                    buscarAutoresVivoEnUnYear();
+                    buscarAutoresVivoEnUnAnio();
                     break;
                 case 5:
                     buscarLibroPorIdioma();
@@ -59,12 +59,12 @@ public class Principal {
                 case 0:
                     System.out.println("""
                             ---------------------------------------------------------
-                            | Finalizó el programa. ¡Gracias por usar la aplicacion |
+                            | Finalizó aplicación. ¡Gracias por usar la aplicación! |
                             ---------------------------------------------------------
                             """);
                     break;
                 default:
-                    System.out.println("Eliga una opcion valida");
+                    System.out.println("Elija una opción valida");
                     break;
             }
 
@@ -112,7 +112,6 @@ public class Principal {
                 | Respuesta de la API obtenida |
                 --------------------------------
                 """);
-        System.out.println(json);
         return conversor.obtenerDatos(json, Datos.class);
     }
 
@@ -146,7 +145,7 @@ public class Principal {
                         libroRepository.save(libro);
                         System.out.println("""
                                 -------------------------------------------
-                                | El autor ya eciste en la base de datos  |
+                                | El autor ya existe en la base de datos  |
                                 | Se ha vinculado el libro con este autor |
                                 -------------------------------------------
                                 """);
@@ -199,7 +198,7 @@ public class Principal {
         autores.forEach(System.out::println);
     }
 
-    public void buscarAutoresVivoEnUnYear() {
+    public void buscarAutoresVivoEnUnAnio() {
         System.out.println("""
                 --------------------------------------
                 | Ingrese el año a buscar autor vivo |
